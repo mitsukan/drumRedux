@@ -22,3 +22,5 @@ window.setInterval(beat(), (bpm/millisecondsInAMinute));
 
 
 module.exports.toggle = toggle;
+module.exports.score = score;
+module.exports.beat = beat;
