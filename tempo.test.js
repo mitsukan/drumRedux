@@ -23,3 +23,10 @@ describe("play", () => {
     expect(setInterval).toHaveBeenLastCalledWith(tempo.beat(), 500);
   });
 });
+
+describe("stop", () => {
+  it('can stop the timer function', () => {
+    tempo.stop();
+    expect(clearInterval).toHaveBeenCalledTimes(1);
+  });
+});
