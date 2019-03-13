@@ -1,5 +1,7 @@
 const tempo = require('./tempo');
 
+jest.useFakeTimers();
+
 describe("tempo", () => {
 
   it("can toggle a state", () => {
@@ -7,8 +9,16 @@ describe("tempo", () => {
     expect(tempo.toggle(false)).toBe(true);
   });
 
-  it("can change the state in a sheet", () => {
+  it("can change the state in a score", () => {
     tempo.beat()
-    expect(tempo.score).toBe([true,false,false,false]);
+    expect(tempo.score).toEqual([true,false,false,false]);
+  });
+
+});
+
+describe("play", () => {
+  it('can run a timer', () => {
+    tempo.play();
+    expect(setInterval).toHaveBeenCalledTimes(1);
   });
 });

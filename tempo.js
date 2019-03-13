@@ -1,12 +1,12 @@
 var score = [false,false,false,false]
 var bpm = 120
-var millisecondsInAMinute = 60000
+var msInAMinute = 60000
 var note = 0
 
 function beat() {
-  if(note < score.length) {
-    toggle(score[note]);
-  }
+  console.log(note);
+  score[note] = toggle(score[note]);
+  note += 1;
 }
 
 function toggle(boolean) {
@@ -18,9 +18,16 @@ function toggle(boolean) {
   }
 }
 
-window.setInterval(beat(), (bpm/millisecondsInAMinute));
+function play() {
+  setInterval(beat(), msInAMinute/bpm);
+}
 
+function stop() {
+  clearInterval(play);
+}
 
 module.exports.toggle = toggle;
 module.exports.score = score;
 module.exports.beat = beat;
+module.exports.play = play;
+module.exports.stop = stop;
