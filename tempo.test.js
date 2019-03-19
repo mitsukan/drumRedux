@@ -17,7 +17,7 @@ describe("tempo", () => {
 });
 
 describe("play", () => {
-  it('can run a timer', () => {
+  it('can run a timer at 120bpm', () => {
     tempo.play();
     expect(setInterval).toHaveBeenCalledTimes(1);
     expect(setInterval).toHaveBeenLastCalledWith(tempo.beat(), 500);
