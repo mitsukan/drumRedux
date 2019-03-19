@@ -1,4 +1,4 @@
-var score = [false,false,false,false]
+var score = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
 var bpm = 120
 var msInAMinute = 60000
 var note = 0

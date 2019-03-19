@@ -11,7 +11,7 @@ describe("tempo", () => {
 
   it("can change the state in a score", () => {
     tempo.beat()
-    expect(tempo.score).toEqual([true,false,false,false]);
+    expect(tempo.score).toEqual([true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);
   });
 
 });
