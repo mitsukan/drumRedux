@@ -16,16 +16,12 @@ describe("tempo", () => {
     expect(tempo.score).toEqual([true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);
     expect(setInterval).toHaveBeenCalledTimes(1);
     expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 500);
+    jest.advanceTimersByTime(500);
+    expect(tempo.score).toEqual([false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);    
   });
 
 });
 
-// describe("play", () => {
-//   it('can run a timer at 120bpm', () => {
-//     tempo.play();
-
-//   });
-// });
 
 describe("stop", () => {
   it('can stop the timer function', () => {

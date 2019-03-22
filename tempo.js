@@ -29,7 +29,7 @@ function play(callback) {
 }
 
 function stop() {
-  clearInterval(play);
+  clearInterval();
 }
 
 module.exports.toggle = toggle;
