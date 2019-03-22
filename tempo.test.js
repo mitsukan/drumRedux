@@ -1,6 +1,6 @@
 const tempo = require('./tempo');
-
 jest.useFakeTimers();
+const callback = jest.fn();
 
 describe("tempo", () => {
 
@@ -10,19 +10,22 @@ describe("tempo", () => {
   });
 
   it("can change the state in a score", () => {
-    tempo.beat()
+    tempo.play(callback);
+    expect(callback).not.toBeCalled();
+    jest.advanceTimersByTime(501);
     expect(tempo.score).toEqual([true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);
-  });
-
-});
-
-describe("play", () => {
-  it('can run a timer at 120bpm', () => {
-    tempo.play();
     expect(setInterval).toHaveBeenCalledTimes(1);
-    expect(setInterval).toHaveBeenLastCalledWith(tempo.beat(), 500);
+    expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 500);
   });
+
 });
+
+// describe("play", () => {
+//   it('can run a timer at 120bpm', () => {
+//     tempo.play();
+
+//   });
+// });
 
 describe("stop", () => {
   it('can stop the timer function', () => {

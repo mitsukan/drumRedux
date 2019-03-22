@@ -3,10 +3,11 @@ var bpm = 120
 var msInAMinute = 60000
 var note = 0
 
-function beat() {
+function beat(callback) {
   console.log(note);
   score[note] = toggle(score[note]);
   note += 1;
+  callback && callback();
 }
 
 function toggle(boolean) {
@@ -18,8 +19,13 @@ function toggle(boolean) {
   }
 }
 
-function play() {
-  setInterval(beat(), msInAMinute/bpm);
+function play(callback) {
+  setInterval(() => {
+    console.log(note);
+    score[note] = toggle(score[note]);
+    note += 1;
+    callback && callback();
+  }, msInAMinute/bpm);
 }
 
 function stop() {
