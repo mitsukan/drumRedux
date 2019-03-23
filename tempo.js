@@ -19,11 +19,12 @@ function stop() {
 //////////////////////////
 
 function beat() {
-  if (isPlaying == true) {
+  if(isPlaying == true) {
+    if(score[15] == true && note == 0) {score[15] = toggle(score[15])}
     score[note - 1] = toggle(score[note - 1])
   }
   score[note] = toggle(score[note]);
-  note += 1;
+  note == 15 ? note = 0 : note += 1;
 }
 
 function toggle(boolean) {
@@ -36,6 +37,9 @@ function toggle(boolean) {
 }
 
 
+
+///////////////////
+// Module exports for testing
 
 module.exports.toggle = toggle;
 module.exports.score = score;

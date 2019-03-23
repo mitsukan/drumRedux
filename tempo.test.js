@@ -18,8 +18,8 @@ describe("tempo", () => {
     expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 500);
     jest.advanceTimersByTime(500);
     expect(tempo.score).toEqual([false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);
-    jest.advanceTimersByTime(500);
-    expect(tempo.score).toEqual([false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false]);
+    jest.advanceTimersByTime(7500);
+    expect(tempo.score).toEqual([true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);
   });
 
 });
