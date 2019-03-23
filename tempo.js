@@ -1,19 +1,21 @@
-var score = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
-var bpm = 120
-var msInAMinute = 60000
-var note = 0
-var isPlaying = false
+var score = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
+var bpm = 120;
+var msInAMinute = 60000 / 4 ;// 4 ticks per beat
+var note = 0;
+var isPlaying = false;
+var intState;
 
 function play(callback) {
   isPlaying = true;
-  setInterval(() => {
+  intState = setInterval(() => {
+    console.log(note);
     beat();
     callback && callback(); // For timing mocks
   }, msInAMinute/bpm);
 }
 
 function stop() {
-  clearInterval();
+  clearInterval(intState);
 }
 
 //////////////////////////
