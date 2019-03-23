@@ -3,6 +3,19 @@ var bpm = 120
 var msInAMinute = 60000
 var note = 0
 
+function play(callback) {
+  setInterval(() => {
+    beat();
+    callback && callback(); // For timing mocks
+  }, msInAMinute/bpm);
+}
+
+function stop() {
+  clearInterval();
+}
+
+//////////////////////////
+
 function beat() {
   console.log(note);
   // toggle
@@ -19,16 +32,7 @@ function toggle(boolean) {
   }
 }
 
-function play(callback) {
-  setInterval(() => {
-    beat();
-    callback && callback();
-  }, msInAMinute/bpm);
-}
 
-function stop() {
-  clearInterval();
-}
 
 module.exports.toggle = toggle;
 module.exports.score = score;
