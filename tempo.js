@@ -2,8 +2,10 @@ var score = [false,false,false,false,false,false,false,false,false,false,false,f
 var bpm = 120
 var msInAMinute = 60000
 var note = 0
+var isPlaying = false
 
 function play(callback) {
+  isPlaying = true;
   setInterval(() => {
     beat();
     callback && callback(); // For timing mocks
@@ -17,8 +19,9 @@ function stop() {
 //////////////////////////
 
 function beat() {
-  console.log(note);
-  // toggle
+  if (isPlaying == true) {
+    score[note - 1] = toggle(score[note - 1])
+  }
   score[note] = toggle(score[note]);
   note += 1;
 }
