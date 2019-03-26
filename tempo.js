@@ -7,11 +7,10 @@ var intState;
 
 class Tempo{
   constructor(score,bpm,msInAMinute,note,isPlaying,intState) {
-    this.score = score;
-    this.bpm = bpm;
-    this.msInAMinute = msInAMinute;
-    this.note = note;
-    this.isPlaying = isPlaying;
+    this.score = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
+    this.bpm = 120;
+    this.msInAMinute = 60000 / 4;
+    this.note = 0;
     this.intState = intState;
   }
 
@@ -21,6 +20,17 @@ class Tempo{
         return false;
       case false:
         return true;
+    }
+  }
+
+  beat() {
+    function beat() {
+      if(isPlaying == true) {
+        if(score[15] == true && note == 0) {score[15] = toggle(score[15])}
+        score[note - 1] = toggle(score[note - 1])
+      }
+      score[note] = toggle(score[note]);
+      note == 15 ? note = 0 : note += 1;
     }
   }
 }

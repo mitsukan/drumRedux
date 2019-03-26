@@ -7,7 +7,16 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-describe("tempo", () => {
+describe("Tempo", () => {
+
+  it('initialises with the correct constructors', () => {
+    expect(t.score).toEqual([false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);
+    expect(t.bpm).toEqual(120);
+    expect(t.msInAMinute).toEqual(60000/4);
+    expect(t.note).toEqual(0);
+    expect(t.bpm).toEqual(120);
+    expect(t.intState).toEqual(undefined);
+  });
 
   it("can toggle a state", () => {
     expect(t.toggle(true)).toBe(false);
