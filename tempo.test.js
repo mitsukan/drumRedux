@@ -16,10 +16,10 @@ describe("tempo", () => {
     expect(tempo.score).toEqual([true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);
     expect(setInterval).toHaveBeenCalledTimes(1);
     expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 125);
-    // jest.advanceTimersByTime(500);
-    // expect(tempo.score).toEqual([false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);
-    // jest.advanceTimersByTime(7500);
-    // expect(tempo.score).toEqual([true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);
+    jest.advanceTimersByTime(125);
+    expect(tempo.score).toEqual([false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);
+    jest.advanceTimersByTime(1875);
+    expect(tempo.score).toEqual([true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);
   });
 
 });
