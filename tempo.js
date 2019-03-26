@@ -5,6 +5,26 @@ var note = 0;
 var isPlaying = false;
 var intState;
 
+class Tempo{
+  constructor(score,bpm,msInAMinute,note,isPlaying,intState) {
+    this.score = score;
+    this.bpm = bpm;
+    this.msInAMinute = msInAMinute;
+    this.note = note;
+    this.isPlaying = isPlaying;
+    this.intState = intState;
+  }
+
+  toggle(boolean) {
+    switch(boolean) {
+      case true:
+        return false;
+      case false:
+        return true;
+    }
+  }
+}
+
 function play(callback) {
   isPlaying = true;
   intState = setInterval(() => {
@@ -29,22 +49,14 @@ function beat() {
   note == 15 ? note = 0 : note += 1;
 }
 
-function toggle(boolean) {
-  switch(boolean) {
-    case true:
-      return false;
-    case false:
-      return true;
-  }
-}
 
 
 
 ///////////////////
 // Module exports for testing
 
-module.exports.toggle = toggle;
 module.exports.score = score;
 module.exports.beat = beat;
 module.exports.play = play;
 module.exports.stop = stop;
+module.exports.Tempo = Tempo;
