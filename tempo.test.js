@@ -1,6 +1,10 @@
 const tempo = require('./tempo');
-jest.useFakeTimers();
 const callback = jest.fn();
+
+beforeEach(() => {
+  jest.useFakeTimers();
+  jest.clearAllMocks();
+});
 
 describe("tempo", () => {
 
