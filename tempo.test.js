@@ -34,4 +34,9 @@ describe("stop", () => {
     tempo.stop();
     expect(clearInterval).toHaveBeenCalledTimes(1);
   });
+
+  it('resets variables when stop function runs', () => {
+    tempo.play(callback);
+    expect(callback).not.toBeCalled();
+  });
 });
