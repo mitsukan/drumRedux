@@ -23,14 +23,14 @@ describe("Tempo", () => {
     expect(t.toggle(false)).toBe(true);
   });
 
-  // it("can change the state in a score", () => {
-  //   tempo.play(callback);
-  //   expect(callback).not.toBeCalled();
-  //   jest.advanceTimersByTime(125);
-  //   expect(tempo.score).toEqual([true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);
-  //   expect(setInterval).toHaveBeenCalledTimes(1);
-  //   expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 125);
-  // });
+  it("can change the state in a score", () => {
+    t.play(callback);
+    expect(callback).not.toBeCalled();
+    jest.advanceTimersByTime(125);
+    expect(t.score).toEqual([true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);
+    expect(setInterval).toHaveBeenCalledTimes(1);
+    expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 125);
+  });
 
 
 });

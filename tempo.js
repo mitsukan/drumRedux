@@ -14,6 +14,14 @@ class Tempo{
     this.intState = intState;
   }
 
+  play(callback) {
+    this.intState = setInterval(() => {
+      console.log(this.note);
+      this.beat();
+      callback && callback(); // For timing mocks
+    }, this.msInAMinute/this.bpm);
+  }
+
   toggle(boolean) {
     switch(boolean) {
       case true:
@@ -24,16 +32,14 @@ class Tempo{
   }
 
   beat() {
-    function beat() {
-      if(isPlaying == true) {
-        if(score[15] == true && note == 0) {score[15] = toggle(score[15])}
-        score[note - 1] = toggle(score[note - 1])
-      }
-      score[note] = toggle(score[note]);
-      note == 15 ? note = 0 : note += 1;
-    }
+    if(this.score[15] == true && this.note == 0) {this.score[15] = this.toggle(this.score[15])}
+    this.score[this.note - 1] = this.toggle(this.score[this.note - 1])
+    this.score[note] = this.toggle(this.score[this.note]);
+    this.note == 15 ? this.note = 0 : this.note += 1;
   }
 }
+
+//////////////////////
 
 function play(callback) {
   isPlaying = true;
