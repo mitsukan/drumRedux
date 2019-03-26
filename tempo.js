@@ -22,19 +22,19 @@ class Tempo{
     }, this.msInAMinute/this.bpm);
   }
 
-  toggle(boolean) {
-    switch(boolean) {
+  toggle(index) {
+    switch(this.score[index]) {
       case true:
-        return false;
+        return this.score[index] = false;
       case false:
-        return true;
+        return this.score[index] = true;
     }
   }
 
   beat() {
-    if(this.score[15] == true && this.note == 0) {this.score[15] = this.toggle(this.score[15])}
-    this.score[this.note - 1] = this.toggle(this.score[this.note - 1])
-    this.score[note] = this.toggle(this.score[this.note]);
+    if(this.score[15] == true && this.note == 0) {this.toggle(this.score[15])}
+    this.toggle(this.note - 1);
+    this.toggle(this.note);
     this.note == 15 ? this.note = 0 : this.note += 1;
   }
 }

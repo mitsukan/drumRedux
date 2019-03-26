@@ -19,8 +19,8 @@ describe("Tempo", () => {
   });
 
   it("can toggle a state", () => {
-    expect(t.toggle(true)).toBe(false);
-    expect(t.toggle(false)).toBe(true);
+    expect(t.toggle(0)).toBe(true);
+    expect(t.toggle(0)).toBe(false);
   });
 
   it("can change the state in a score", () => {
