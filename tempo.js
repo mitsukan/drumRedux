@@ -43,33 +43,6 @@ class Tempo{
   }
 }
 
-//////////////////////
-
-function play(callback) {
-  isPlaying = true;
-  intState = setInterval(() => {
-    console.log(note);
-    beat();
-    callback && callback(); // For timing mocks
-  }, msInAMinute/bpm);
-}
-
-function stop() {
-  clearInterval(intState);
-}
-
-//////////////////////////
-
-function beat() {
-  if(isPlaying == true) {
-    if(score[15] == true && note == 0) {score[15] = toggle(score[15])}
-    score[note - 1] = toggle(score[note - 1])
-  }
-  score[note] = toggle(score[note]);
-  note == 15 ? note = 0 : note += 1;
-}
-
-
 
 
 ///////////////////
