@@ -35,6 +35,7 @@ describe("Tempo", () => {
   it('can stop the interval function', () => {
     t.stop();
     expect(clearInterval).toHaveBeenCalledTimes(1);
+    expect(clearInterval).toHaveBeenLastCalledWith(t.intState);
   });
 
 });
