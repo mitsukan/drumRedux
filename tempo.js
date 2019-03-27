@@ -37,6 +37,10 @@ class Tempo{
     this.toggle(this.note);
     this.note == 15 ? this.note = 0 : this.note += 1;
   }
+
+  stop() {
+    clearInterval(intState);
+  }
 }
 
 //////////////////////

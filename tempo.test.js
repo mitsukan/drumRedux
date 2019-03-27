@@ -32,15 +32,15 @@ describe("Tempo", () => {
     expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 125);
   });
 
+  it('can stop the interval function', () => {
+    t.stop();
+    expect(clearInterval).toHaveBeenCalledTimes(1);
+  });
 
 });
 
 
-// describe("stop", () => {
-//   it('can stop the timer function', () => {
-//     tempo.stop();
-//     expect(clearInterval).toHaveBeenCalledTimes(1);
-//   });
+
 //
 //   it('resets variables when stop function runs', () => {
 //     tempo.play(callback);
