@@ -36,9 +36,9 @@ describe("Tempo", () => {
     t.play(callback);
     expect(callback).not.toBeCalled();
     expect(t.note).toEqual(0);
-    jest.advanceTimersByTime(125);
-    expect(t.note).toEqual(1);
     jest.advanceTimersByTime(1875);
+    expect(t.note).toEqual(15);
+    jest.advanceTimersByTime(125);
     expect(t.note).toEqual(0);
   });
 
