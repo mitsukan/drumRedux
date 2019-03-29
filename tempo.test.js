@@ -32,6 +32,14 @@ describe("Tempo", () => {
     expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 125);
   });
 
+  it('can loop back to 0 after hitting 15', () => {
+    t.play(callback);
+    expect(callback).not.toBeCalled();
+    expect(t.note).toEqual(0);
+    jest.advanceTimersByTime(125);
+    expect(t.note).toEqual(1);
+  });
+
   it('can stop the interval function', () => {
     t.stop();
     expect(clearInterval).toHaveBeenCalledTimes(1);
