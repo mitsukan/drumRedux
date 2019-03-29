@@ -38,6 +38,8 @@ describe("Tempo", () => {
     expect(t.note).toEqual(0);
     jest.advanceTimersByTime(125);
     expect(t.note).toEqual(1);
+    jest.advanceTimersByTime(1875);
+    expect(t.note).toEqual(0);
   });
 
   it('can stop the interval function', () => {
