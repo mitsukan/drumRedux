@@ -23,11 +23,11 @@ describe("Tempo", () => {
     expect(t.toggle(0)).toBe(false);
   });
 
-  it("can change the state in a score", () => {
+  it("can iterate through the score index", () => {
     t.play(callback);
     expect(callback).not.toBeCalled();
     jest.advanceTimersByTime(125);
-    expect(t.score).toEqual([true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);
+    expect(t.note).toEqual(1);
     expect(setInterval).toHaveBeenCalledTimes(1);
     expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 125);
   });

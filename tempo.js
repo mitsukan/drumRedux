@@ -16,7 +16,7 @@ class Tempo{
 
   play(callback) {
     this.intState = setInterval(() => {
-      console.log(this.note);
+      // console.log(this.note);
       this.beat();
       callback && callback(); // For timing mocks
     }, this.msInAMinute/this.bpm);
@@ -32,9 +32,6 @@ class Tempo{
   }
 
   beat() {
-    if(this.score[15] == true && this.note == 0) {this.toggle(this.score[15])}
-    this.toggle(this.note - 1);
-    this.toggle(this.note);
     this.note == 15 ? this.note = 0 : this.note += 1;
   }
 
@@ -48,8 +45,4 @@ class Tempo{
 ///////////////////
 // Module exports for testing
 
-module.exports.score = score;
-module.exports.beat = beat;
-module.exports.play = play;
-module.exports.stop = stop;
 module.exports.Tempo = Tempo;
