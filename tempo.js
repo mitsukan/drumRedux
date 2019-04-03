@@ -32,12 +32,14 @@ class Tempo{
   }
 
   beat() {
+    // if (this.score[this.note] == true) {}
     this.note == 15 ? this.note = 0 : this.note += 1;
   }
 
   stop() {
-    clearInterval(intState);
+    clearInterval(this.intState);
   }
+
 }
 
 
