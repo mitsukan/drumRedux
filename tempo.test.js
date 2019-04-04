@@ -1,6 +1,7 @@
 const tempo = require('./tempo');
 const callback = jest.fn();
 
+
 beforeEach(() => {
   t = new tempo.Tempo;
   jest.useFakeTimers();
@@ -47,6 +48,7 @@ describe("Tempo", () => {
     expect(clearInterval).toHaveBeenCalledTimes(1);
     expect(clearInterval).toHaveBeenLastCalledWith(t.intState);
   });
+
 
 });
 
