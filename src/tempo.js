@@ -33,9 +33,5 @@ class Tempo{
 
 }
 
-
-
-///////////////////
 // Module exports for testing
-
 module.exports.Tempo = Tempo;

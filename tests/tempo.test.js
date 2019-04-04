@@ -1,14 +1,15 @@
-const tempo = require('../src/tempo');
+const tempo = require('../src/tempo.js');
 const callback = jest.fn();
 
 
-beforeEach(() => {
-  t = new tempo.Tempo;
-  jest.useFakeTimers();
-  jest.clearAllMocks();
-});
 
 describe("Tempo", () => {
+
+  beforeEach(() => {
+    t = new tempo.Tempo;
+    jest.useFakeTimers();
+    jest.clearAllMocks();
+  });
 
   it('initialises with the correct constructors', () => {
     expect(t.score).toEqual([false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]);
