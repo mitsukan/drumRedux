@@ -1,4 +1,4 @@
-const tempo = require('../src/tempo.js');
+const Tempo = require('../src/tempo.js');
 const callback = jest.fn();
 
 
@@ -6,7 +6,7 @@ const callback = jest.fn();
 describe("Tempo", () => {
 
   beforeEach(() => {
-    t = new tempo.Tempo;
+    t = new Tempo;
     jest.useFakeTimers();
     jest.clearAllMocks();
   });
