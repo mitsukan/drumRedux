@@ -1,4 +1,4 @@
-const tempo = require('./tempo');
+const tempo = require('../src/tempo');
 const callback = jest.fn();
 
 
