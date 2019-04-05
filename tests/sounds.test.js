@@ -1,12 +1,14 @@
-const sounds = require('../src/sounds.js');
+const Sounds = require('../src/sounds.js');
+const Tempo = require('../src/tempo.js');
 
 describe('Sounds', () => {
   beforeEach(() => {
-    s = new sounds.Sounds;
+    s = new Sounds;
   });
 
-  it('initialises a howler class', () => {
+  it('initialises the required classes', () => {
     expect(s.clap).toBeInstanceOf(Howl);
+    expect(s.tempo).toBeInstanceOf(Tempo);
   });
 
 });
